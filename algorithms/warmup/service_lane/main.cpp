@@ -22,7 +22,7 @@ int main ()
   
   for (int k(0); k < tc; ++k)
     {
-    cin >> sl [i];
+    cin >> i >> j;
     w = sl [i-1];
     
     for (int m=i; m < j; ++m)
