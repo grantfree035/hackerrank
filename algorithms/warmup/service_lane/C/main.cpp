@@ -14,28 +14,34 @@ int main ()
       tc, // number of test cases
       w;  // width
   
+  // get n & tc; create dynamic array
   cin >> n >> tc;
   int * sl = new int [n];
   
+  // fill array with service lane width
   for (int k(0); k < n; ++k)
     cin >> sl [k];
   
+  // iterate through test cases
   for (int k(0); k < tc; ++k)
     {
+    // get entry and exit points
     cin >> i >> j;
-    w = sl [i-1];
     
-    for (int m = i; m < j; ++m)
+    // set width to entry point
+    w = sl [i];
+    
+    // look for smaller width within i & j
+    for (int m = i+1; m <= j; ++m)
       if (w > sl [m])
         w = sl [m];
     
+    // print width
     cout << w << endl;
     }
   
   // clean up memory
   delete [] sl;
   
-  // endline for readability
-  cout << endl;
   return 0;
   }
