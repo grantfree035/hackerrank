@@ -8,16 +8,16 @@ using namespace std;
 int main ()
   {
   // declare variables
-  int i, // entry index
-      j, // exit index
-      n, // length of lane
+  int i,  // entry index
+      j,  // exit index
+      n,  // length of lane
       tc, // number of test cases
-      w; // width
+      w;  // width
   
   cin >> n >> tc;
   int * sl = new int [n];
   
-  for (int k(0); i < N; ++k)
+  for (int k(0); i < n; ++k)
     cin >> sl [k];
   
   for (int k(0); k < tc; ++k)
@@ -25,13 +25,17 @@ int main ()
     cin >> i >> j;
     w = sl [i-1];
     
-    for (int m=i; m < j; ++m)
-      if (w > sl[m])
+    for (int m = i; m < j; ++m)
+      if (w > sl [m])
         w = sl [m];
     
-    cout << w << " ";
+    cout << w << ' ';
     }
   
+  // clean up memory
+  delete [] sl;
+  
+  // endline for readability
   cout << endl;
   return 0;
   }
