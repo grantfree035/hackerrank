@@ -57,7 +57,7 @@ int main ()
         cur_sum = 0;
       
       // check if current sum is best sum
-      if (cur_cum > best_sum)
+      if (cur_sum > best_sum)
         {
         // set new best sum
         best_sum = cur_sum;
@@ -88,14 +88,12 @@ int main ()
         else;
         }
       
-      /***  OUTPUT  ***/
-      
       // print largest num
       cout << best_num << " ";
       }
     else
       {
-      // print largest sum
+      // largest contiguous sum exist: print sum
       cout << best_sum << " ";
       }
     
@@ -115,9 +113,31 @@ int main ()
       if (n > 0)
         max += n;
       }
-      
-    /////////// resolve the case of negative subarray!!!!!!!
     
+    if (max == 0)
+      {
+      // find the largest integer in array
+      max = -1000;
+      
+      // iterate through array
+      for (int j=0; j < len; ++j)
+        {
+        // principle of locality
+        n = arr [j];
+        
+        // check if in is largest max
+        if (n > max)
+          max = n;
+        }
+      
+      // print largest num found
+      cout << max << endl;
+      }
+    else
+      {
+      // largest sub-arrary exist: print max value
+      cout << max << endl;
+      }
     
     // clean up memory
     delete [] arr;
