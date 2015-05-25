@@ -88,7 +88,7 @@ int max_subarr_non_contig (int *arr, int len)
   {
   // declare var
   int max = 0;
-  int n, final_sum
+  int n, final_sum;
   
   // find largest sum (non-contig)
   for (int j=0; j < len; ++j)
