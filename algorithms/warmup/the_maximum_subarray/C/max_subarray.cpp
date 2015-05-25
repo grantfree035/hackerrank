@@ -1,11 +1,12 @@
 #include "max_subarray.h"
 
-int max_subarr_contig (int *array, int length)
+
+/******************************************/
+/***    find Max Contiguous Subarray    ***/
+/******************************************/
+
+int max_subarr_contig (int *arr, int len)
   {
-  /******************************************/
-  /***    find Max Contiguous Subarray    ***/
-  /******************************************/
-  
   // set initial values
   int n, final_sum;
   int cur_sum = 0;
@@ -50,7 +51,7 @@ int max_subarr_contig (int *array, int length)
   // if not: then find the largest num in the array
   
   // this is smallest number that may be given
-  best_num = -10000;
+  int best_num = -10000;
   
   if (best_sum == 0)
     {
@@ -78,8 +79,53 @@ int max_subarr_contig (int *array, int length)
   return final_sum;
   }
 
-int max_subarr_non_contig (int *array, int length)
+
+/******************************************/
+/***  find Max Non-Contiguous Subarray  ***/
+/******************************************/
+
+int max_subarr_non_contig (int *arr, int len)
   {
-  // filler
-  return 0;
+  // declare var
+  int max = 0;
+  int n, final_sum
+  
+  // find largest sum (non-contig)
+  for (int j=0; j < len; ++j)
+    {
+    // save value in temp var, less overhead call
+    n = arr [j];
+    
+    // if var is possitive, add to max
+    if (n > 0)
+      max += n;
+    }
+  
+  // find largest num if no positive #'s exist
+  if (max == 0)
+    {
+    // find the largest integer in array
+    max = -1000;
+    
+    // iterate through array
+    for (int j=0; j < len; ++j)
+      {
+      // principle of locality
+      n = arr [j];
+      
+      // check if in is largest max
+      if (n > max)
+        max = n;
+      }
+    
+    // found largest num
+    final_sum = max;
+    }
+  else
+    {
+    // largest num exist
+    final_sum = max;
+    }
+  
+  return final_sum;
   }
