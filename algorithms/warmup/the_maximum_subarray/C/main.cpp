@@ -6,9 +6,7 @@ using namespace std;
 int main ()
   {
   // declare vars
-  int tc, len, max, n;
-  int cur_sum, cur_ind, best_sum, best_start_ind, best_end_ind;
-  int best_num;
+  int tc, len, max;
   int *arr;
   
   // get # of test cases
